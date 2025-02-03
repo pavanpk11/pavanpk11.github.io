@@ -88,4 +88,50 @@
     </footer>
     <script src="script.js"></script>
 </body>
+
 </html>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const aboutSection = document.getElementById('about');
+    const skillsSection = document.getElementById('skills');
+    const projectsSection = document.getElementById('projects');
+    const resumeSection = document.getElementById('resume');
+    const contactSection = document.getElementById('contact');
+
+    function checkVisibility(element) {
+        const rect = element.getBoundingClientRect();
+        const viewHeight = Math.max(document.documentElement.clientHeight, window.innerHeight);
+        return !(rect.bottom < 0 || rect.top - viewHeight >= 0);
+    }
+
+    function handleScrollAnimation() {
+        if (checkVisibility(aboutSection)) {
+            aboutSection.classList.add('animate__fadeInLeft');
+        }
+        if (checkVisibility(skillsSection)) {
+            skillsSection.classList.add('animate__fadeInUp');
+        }
+        if (checkVisibility(projectsSection)) {
+            projectsSection.classList.add('animate__fadeInUp');
+        }
+        if (checkVisibility(resumeSection)) {
+            resumeSection.classList.add('animate__fadeInUp');
+        }
+        if (checkVisibility(contactSection)) {
+            contactSection.classList.add('animate__fadeInUp');
+        }
+    }
+
+    window.addEventListener('scroll', handleScrollAnimation);
+});
+</script>
+<script>
+    // Get the current year
+    const currentYear = new Date().getFullYear();
+
+    // Find the element with the ID "copyright-year"
+    const yearElement = document.getElementById("copyright-year");
+
+    // Update the content of the element with the current year
+    yearElement.textContent = currentYear;
+</script>
